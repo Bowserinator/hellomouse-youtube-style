@@ -1,0 +1,86 @@
+/* Better descriptions and titles */
+
+/* Restore old playlist title style */
+ytd-playlist-panel-renderer[modern-panels]:not([hide-header-text]) .title.ytd-playlist-panel-renderer {
+    font-family: "Roboto","Arial",sans-serif !important;
+    font-size: 1.4rem !important;
+    line-height: 2rem !important;
+    font-weight: 500 !important;
+}
+
+/* Restore video title style */
+h1.ytd-watch-metadata {
+    font-family: "Roboto","Arial",sans-serif !important;
+    font-size: 1.8rem !important;
+    line-height: 2.6rem !important;
+    font-weight: 400 !important;
+    max-height: 5.2rem !important;
+}
+
+/* Move video buttons to top */
+#top-row.ytd-watch-metadata {
+    flex-direction: column-reverse !important;
+}
+
+/* Move Info box */
+#info-container.ytd-watch-metadata {
+    position: absolute !important;
+    top: -115px !important;
+    left: 0 !important;
+    font-size: 1.4rem !important;
+    line-height: 2rem !important;
+    font-weight: 400 !important;
+    color: var(--yt-spec-text-secondary) !important;
+    display: block !important;
+    max-width: calc(100% - 400px);
+    -webkit-mask-image: none !important;
+}
+
+#info-container.ytd-watch-metadata span.bold.style-scope.yt-formatted-string {
+    font-weight: 400 !important;
+}
+
+/* Remove description flash when expanding */
+yt-interaction {
+    display: none !important;
+}
+
+/* Remove description background color */
+ytd-watch-metadata[modern-metapanel] #description.ytd-watch-metadata {
+    background-color: transparent !important;
+}
+
+/* Show more button always on new row and blue */
+#expand.ytd-text-inline-expander {
+    /* Original was all title case and faded gray */
+    position: relative !important;
+    left: 0 !important;
+}
+
+/* Show more and less */
+.button.ytd-text-inline-expander,
+#expand.ytd-text-inline-expander {
+    text-transform: uppercase !important;
+    font-weight: normal !important;
+    color: var(--yt-spec-text-secondary) !important;
+    font-size: 1.2rem !important;
+    margin-top: 8px !important;
+}
+
+/* Dislike ratio bar placement (Return youtube dislike) */
+.ryd-tooltip {
+    left: calc(100% - 365px) !important;
+    top: 4px !important;
+}
+/* Red blue coloring */
+#ryd-bar {
+    background: #81c784 !important;
+}
+#ryd-bar-container {
+    background: #ef5350 !important;
+}
+
+/* Increase gap between video and title as was before */
+ytd-watch-metadata.ytd-watch-flexy {
+    margin-top: 20px !important;
+}

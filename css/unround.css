@@ -1,0 +1,72 @@
+/* Change border-radius for most elements: */
+
+:root {
+    --border-radius: 0px;
+    --yt-img-border-radius: var(--border-radius) !important;
+    --paper-menu-button-content-border-radius: var(--border-radius) !important;
+}
+
+/** Search button in nav, rounded on right */
+ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
+ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
+}
+
+/** Nav search input, rounded on left */
+ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
+ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox {
+    border-radius: var(--border-radius) 0 0 var(--border-radius) !important;
+}
+
+/** Playlist container */
+ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
+
+/* Thumbnails */
+ytd-thumbnail[size=medium] a.ytd-thumbnail, ytd-thumbnail[size=medium]:before,
+ytd-thumbnail[size=large] a.ytd-thumbnail, ytd-thumbnail[size=large]:before,
+ytd-playlist-thumbnail[size=medium] a.ytd-playlist-thumbnail,
+ytd-playlist-thumbnail[size=medium]:before,
+ytd-ghost-grid-renderer[rounded-container] .rich-thumbnail.ytd-ghost-grid-renderer,
+
+/* Selecting a playlist / channel on left */
+ytd-guide-entry-renderer[guide-refresh],
+ytd-mini-guide-entry-renderer[guide-refresh],
+ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer,
+ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
+ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
+
+/* Description */
+ytd-watch-metadata[modern-metapanel] #description.ytd-watch-metadata,
+yt-interaction.rounded-large .fill.yt-interaction,
+yt-interaction.rounded-large .stroke.yt-interaction,
+
+/* Cards for games / category */
+ytd-rich-metadata-renderer[rounded],
+
+/* Popups */
+ytd-menu-popup-renderer[sheets-refresh],
+.ytp-settings-menu.ytp-rounded-menu,
+.ytp-screen-mode-menu.ytp-rounded-menu,
+ytd-multi-page-menu-renderer[sheets-refresh],
+.dropdown-content.tp-yt-paper-menu-button,
+yt-dropdown-menu[rounded-container],
+yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
+
+/* Playlist video */
+ytd-playlist-video-renderer[amsterdam],
+
+/* Modal */
+tp-yt-paper-dialog[modern],
+
+/* Playlist page side */
+.immersive-header-container.ytd-playlist-header-renderer,
+.image-wrapper.ytd-hero-playlist-thumbnail-renderer {
+    border-radius: var(--border-radius) !important;
+}
+
+/* Miniplayer */
+.ytp-player-minimized.ytp-rounded-miniplayer .html5-main-video,
+.ytp-player-minimized.ytp-rounded-miniplayer .ytp-miniplayer-scrim,
+.ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player {
+    border-radius: 0;
+}
