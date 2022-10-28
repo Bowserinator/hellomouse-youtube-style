@@ -72,7 +72,7 @@ ytd-watch-metadata[modern-metapanel] #description.ytd-watch-metadata {
     left: calc(100% - 365px) !important;
     top: 4px !important;
 }
-/* Red blue coloring */
+/* Red green coloring */
 #ryd-bar {
     background: #81c784 !important;
 }

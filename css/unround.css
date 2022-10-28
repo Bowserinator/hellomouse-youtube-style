@@ -51,6 +51,7 @@ ytd-multi-page-menu-renderer[sheets-refresh],
 .dropdown-content.tp-yt-paper-menu-button,
 yt-dropdown-menu[rounded-container],
 yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
+ytd-menu-popup-renderer[sheets-refresh],
 
 /* Playlist video */
 ytd-playlist-video-renderer[amsterdam],
@@ -60,7 +61,27 @@ tp-yt-paper-dialog[modern],
 
 /* Playlist page side */
 .immersive-header-container.ytd-playlist-header-renderer,
-.image-wrapper.ytd-hero-playlist-thumbnail-renderer {
+.image-wrapper.ytd-hero-playlist-thumbnail-renderer,
+
+/* Search results */
+.sbdd_b,
+
+/* Thread posts */
+ytd-backstage-post-thread-renderer[rounded-container],
+
+/* Live chat */
+ytd-live-chat-frame[rounded-container],
+ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
+
+/* Buttons */
+.yt-spec-touch-feedback-shape,
+.yt-spec-button-shape-next--size-m,
+
+/* Clip panel */
+ytd-engagement-panel-section-list-renderer[modern-panels],
+
+/* Share URL */
+yt-copy-link-renderer[rounded-container] #bar.yt-copy-link-renderer {
     border-radius: var(--border-radius) !important;
 }
 
@@ -68,5 +89,10 @@ tp-yt-paper-dialog[modern],
 .ytp-player-minimized.ytp-rounded-miniplayer .html5-main-video,
 .ytp-player-minimized.ytp-rounded-miniplayer .ytp-miniplayer-scrim,
 .ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player {
-    border-radius: 0;
+    border-radius: 0 !important;
+}
+
+/* Community poll */
+ytd-backstage-poll-renderer:not([is-image-poll]) .choice-info.ytd-backstage-poll-renderer {
+    border-radius: 0 !important; /* Used to be 4px */
 }
