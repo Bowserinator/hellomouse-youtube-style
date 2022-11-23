@@ -88,6 +88,7 @@ yt-notification-action-renderer[ui-refresh] tp-yt-paper-toast.yt-notification-ac
 
 /* Next video preview */
 .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview,
+.ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview .ytp-tooltip-bg,
 
 /* End video cards */
 .ytp-ce-video.ytp-ce-medium-round, .ytp-ce-playlist.ytp-ce-medium-round, .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
