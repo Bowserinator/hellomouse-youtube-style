@@ -4,6 +4,8 @@ Around October 26th 2022 youtube released a new UI update, with lots of round bu
 
 This user CSS undoes most of that (and has some "enhancements" of my own, you can look for them in the CSS and disable them if you don't like them). There are also a few settings you can adjust.
 
+**Note: if you see 2 description boxes enable the bug fix in the settings, I have no idea what other extension or youtube feature causes this
+
 ### Installation:
 
 ## 1. Get the [Stylus] browser extension
@@ -20,13 +22,14 @@ should offer to install it.
 ### Features (v1.0.0)
 
 - Restore the old style for playlist titles, video thumbnail titles, channel names, etc...
-- Move video buttons to top again, remove names for more compact interface (that can fit all buttons including *Add to Playlist*)
+- Move video buttons to top again, remove names for more compact interface (optional) (that can fit all buttons including *Add to Playlist*)
 - Remove the ugly new description box styles and move date added to top
 - Red subscribe buttons
 - Make new playlist page slightly more bearable
 - (Adjustable) Border radius on most things, unrounded UI as was before
 - (Optional) Denser grid on homepage and channels, on a 1080p screen can now fit 5 thumbnails instead of 4
 - (Optional) Red/green styling for "Return Youtube Dislikes" ratio bar
+- (Optional) Always show titles in video end card grid
 
 ### Bug
 

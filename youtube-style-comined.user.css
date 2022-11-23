@@ -8,6 +8,9 @@
 
 @var checkbox DislikeRatioColors "Red/green coloring for 'Return Youtube Dislike's' dislike ratio bar" 1
 @var checkbox DenseGrid "Smaller thumbnails and more items on homepage / channel video grid" 1
+@var checkbox AlwaysShowEndCardTitle "Always show titles (without needing to hover) in the video end grid" 1
+@var checkbox RemoveButtonLabel "Remove labels on buttons below video" 1
+@var checkbox DescBugFix "Enable if you see 2 description boxes" 0
 @var number   ButtonBorderRadius "Border radius for buttons (px)" [2, 0, 32, 'px']
 @var number   ChipBorderRadius "Border radius for chips and bubbles (px)" [4, 0, 32, 1, 'px']
 @var number   NormalBorderRadius "Border radius for most things (px)" [0, 0, 32, 1, 'px']
@@ -43,7 +46,8 @@
     #info-container.ytd-watch-metadata {
         position: absolute !important;
         visibility: visible !important;
-        top: -74px !important; /* -115px for new desc box */
+        & when (@DescBugFix = 1) { top: -74px !important; }
+        & when (@DescBugFix = 0) { top: -110px !important; }
         left: 0 !important;
         font-size: 1.4rem !important;
         line-height: 2rem !important;
@@ -167,12 +171,14 @@
     }
 
     /* For some reason desc is duplicated */
-    #bottom-row, #owner {
-        visibility: hidden !important;
-        height: 0;
+    & when (@DescBugFix = 1) {
+        #bottom-row, #owner {
+            visibility: hidden !important;
+            height: 0;
+        }
+        ytd-watch-metadata { margin-bottom: 0 !important; }
     }
-    ytd-watch-metadata { margin-bottom: 0 !important; }
-    
+        
     /* This is the style for the old desc box (may be removed in the future, but we're keeping this for now */
     /* #meta-contents.style-scope.ytd-watch-flexy { display: none !important; } */
 
@@ -222,17 +228,26 @@
     #actions.ytd-watch-metadata ytd-segmented-like-dislike-button-renderer .yt-spec-button-shape-next--button-text-content {
         display: block !important;
     }
-    #actions.ytd-watch-metadata ytd-segmented-like-dislike-button-renderer .yt-spec-button-shape-next__icon {
-        margin-right: 6px !important;
-        margin-left: -6px !important;
+    
+    & when (@RemoveButtonLabel = 1) {
+        #actions.ytd-watch-metadata ytd-segmented-like-dislike-button-renderer .yt-spec-button-shape-next__icon {
+            margin-right: 6px !important;
+            margin-left: -6px !important;
+        }
+        #actions.ytd-watch-metadata .yt-spec-button-shape-next--button-text-content,
+        ytd-menu-renderer ytd-button-renderer yt-formatted-string.ytd-button-renderer {
+            display: none !important;
+        }
+        #actions.ytd-watch-metadata .yt-spec-button-shape-next__icon {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+        }
     }
-    #actions.ytd-watch-metadata .yt-spec-button-shape-next--button-text-content,
-    ytd-menu-renderer ytd-button-renderer yt-formatted-string.ytd-button-renderer {
-        display: none !important;
-    }
-    #actions.ytd-watch-metadata .yt-spec-button-shape-next__icon {
-        margin-right: 0 !important;
-        margin-left: 0 !important;
+    
+    & when (@AlwaysShowEndCardTitle = 1) {
+        .ytp-videowall-still-info-content {
+            opacity: 1 !important;
+        }
     }
 
     /* Thumbnail channel name */
