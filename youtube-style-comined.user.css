@@ -153,7 +153,9 @@
     #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
     #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
     yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
-    yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+    yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+    #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+    #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
         background-color: var(--yt-spec-brand-button-background) !important;
         border-radius: 2px !important;
         color: var(--yt-spec-static-brand-white) !important;
@@ -184,7 +186,8 @@
 
     /* Already subscribed button */
     #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-    yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+    yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+    #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
         background-color: var(--yt-spec-badge-chip-background) !important;
         color: var(--yt-spec-text-secondary) !important;
     }
@@ -345,6 +348,12 @@
 
     /* End video suggestions */
     .ytp-videowall-still-round-large .ytp-videowall-still-image,
+    
+    /* Banner */
+    ytd-brand-video-singleton-renderer[rounded-container]:not([is-first-feed-item]) #dismissible.ytd-brand-video-singleton-renderer,
+    
+    /* Hover to play */
+    ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
 
     /* Next video preview */
     .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview,
