@@ -118,3 +118,8 @@ yt-bubble-hint-renderer[rounded-container] {
 .yt-spec-button-shape-next--size-m {
     border-radius: 2px !important;
 }
+
+/* Chips */
+/* yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
+    border-radius: 2px !important;
+} */

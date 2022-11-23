@@ -7,7 +7,7 @@
     "content_scripts" : [
         {
             "js" : ["init.js"],
-            "css": ["css/desc.css", "css/unround.css", "css/ui.css"],
+            "css": ["css/desc.css", "css/unround.css", "css/ui.css", "css/optional.css"],
             "matches" : ["https://*.youtube.com/*"],
             "all_frames": true
         }
