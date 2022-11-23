@@ -174,7 +174,8 @@
 
     /* For some reason desc is duplicated */
     & when (@DescBugFix = 1) {
-        #bottom-row, #owner {
+        #bottom-row, #owner,
+        ytd-metadata-row-container-renderer.style-scope.ytd-watch-metadata #always-shown {
             visibility: hidden !important;
             height: 0;
         }
@@ -318,6 +319,9 @@
 
     /* Playlist video */
     ytd-playlist-video-renderer[amsterdam],
+    
+    /* Chapter thumbnail */
+    ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer,
 
     /* Modal */
     tp-yt-paper-dialog[modern],
