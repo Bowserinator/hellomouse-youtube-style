@@ -16,6 +16,11 @@ yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono
     text-transform: var(--ytd-tab-system-text-transform) !important;
 }
 
+/* Move analytics button to right */
+ytd-video-owner-renderer[watch-metadata-refresh] {
+    flex-grow: 1;
+}
+
 /* For some reason desc is duplicated */
 #meta-contents.style-scope.ytd-watch-flexy { display: none !important; } 
 
