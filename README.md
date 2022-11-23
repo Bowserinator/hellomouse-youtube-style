@@ -4,17 +4,17 @@ Around October 26th 2022 youtube released a new UI update, with lots of round bu
 
 This user CSS undoes most of that (and has some "enhancements" of my own, you can look for them in the CSS and disable them if you don't like them). There are also a few settings you can adjust.
 
-**Note: if you see 2 description boxes enable the bug fix in the settings, I have no idea what other extension or youtube feature causes this
+**Note: if you see 2 description boxes enable the bug fix in the settings, I have no idea what other extension or youtube feature causes this**
 
 ### Installation:
 
-## 1. Get the [Stylus] browser extension
-[![Stylus for Chrome](https://img.shields.io/badge/Get_Stylus_for-Chrome-blue.svg)][StylusChrome]<br>
-[![Stylus for Firefox](https://img.shields.io/badge/Get_Stylus_for-Firefox-orange.svg)][StylusFirefox]<br>
-[![Stylus for Opera](https://img.shields.io/badge/Get_Stylus_for-Opera-red.svg)][StylusOpera]
+#### 1. Get the [Stylus] browser extension
+![Stylus for Chrome](https://img.shields.io/badge/Get_Stylus_for-Chrome-blue.svg)
+![Stylus for Firefox](https://img.shields.io/badge/Get_Stylus_for-Firefox-orange.svg)
+![Stylus for Opera](https://img.shields.io/badge/Get_Stylus_for-Opera-red.svg)
 
-## 2. Add scripts to Stylus
-[TODO link]
+#### 2. Add scripts to Stylus
+Go here https://userstyles.world/style/7450/undo-bad-youtube-ui-update and click the install button
 
 Alternatively, you can go to the `youtube-style-combined.user.css` file and click "Raw" in the top-right corner, Stylus 
 should offer to install it.
