@@ -14,6 +14,9 @@
     text-transform: var(--ytd-tab-system-text-transform) !important;
 }
 
+/* For some reason desc is duplicated */
+#meta-contents.style-scope.ytd-watch-flexy { display: none !important; } 
+
 /* Already subscribed button */
 #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
     background-color: var(--yt-spec-badge-chip-background) !important;

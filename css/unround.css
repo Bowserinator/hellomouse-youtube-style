@@ -77,6 +77,21 @@ ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd
 .yt-spec-touch-feedback-shape,
 .yt-spec-button-shape-next--size-m,
 
+/* Toasts */
+yt-notification-action-renderer[ui-refresh] tp-yt-paper-toast.yt-notification-action-renderer,
+
+/* End video suggestions */
+.ytp-videowall-still-round-large .ytp-videowall-still-image,
+
+/* End video cards */
+.ytp-ce-video.ytp-ce-medium-round, .ytp-ce-playlist.ytp-ce-medium-round, .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
+
+/* Create a post */
+ytd-backstage-post-dialog-renderer[is-creation-dialog][rounded-container],
+
+/* Survey */
+ytd-inline-survey-renderer[rounded-container] #dismissible.ytd-inline-survey-renderer,
+
 /* Clip panel */
 ytd-engagement-panel-section-list-renderer[modern-panels],
 
@@ -95,4 +110,9 @@ yt-copy-link-renderer[rounded-container] #bar.yt-copy-link-renderer {
 /* Community poll */
 ytd-backstage-poll-renderer:not([is-image-poll]) .choice-info.ytd-backstage-poll-renderer {
     border-radius: 0 !important; /* Used to be 4px */
+}
+
+/* Help bubble */
+yt-bubble-hint-renderer[rounded-container] {
+    border-radius: 4px !important; /* Used to be 12px */
 }

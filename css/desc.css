@@ -1,7 +1,8 @@
 /* Better descriptions and titles */
 
 /* Restore old playlist title style */
-ytd-playlist-panel-renderer[modern-panels]:not([hide-header-text]) .title.ytd-playlist-panel-renderer {
+ytd-playlist-panel-renderer[modern-panels]:not([hide-header-text]) .title.ytd-playlist-panel-renderer,
+ytd-engagement-panel-title-header-renderer[modern-panels] #title-text.ytd-engagement-panel-title-header-renderer {
     font-family: "Roboto","Arial",sans-serif !important;
     font-size: 1.4rem !important;
     line-height: 2rem !important;
