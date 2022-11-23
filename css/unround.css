@@ -73,10 +73,6 @@ ytd-backstage-post-thread-renderer[rounded-container],
 ytd-live-chat-frame[rounded-container],
 ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
 
-/* Buttons */
-.yt-spec-touch-feedback-shape,
-.yt-spec-button-shape-next--size-m,
-
 /* Toasts */
 yt-notification-action-renderer[ui-refresh] tp-yt-paper-toast.yt-notification-action-renderer,
 
@@ -115,4 +111,10 @@ ytd-backstage-poll-renderer:not([is-image-poll]) .choice-info.ytd-backstage-poll
 /* Help bubble */
 yt-bubble-hint-renderer[rounded-container] {
     border-radius: 4px !important; /* Used to be 12px */
+}
+
+/* Buttons */
+.yt-spec-touch-feedback-shape,
+.yt-spec-button-shape-next--size-m {
+    border-radius: 2px !important;
 }

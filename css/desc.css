@@ -70,7 +70,7 @@ ytd-watch-metadata[modern-metapanel] #description.ytd-watch-metadata {
 
 /* Dislike ratio bar placement (Return youtube dislike) */
 .ryd-tooltip {
-    left: calc(100% - 365px) !important;
+    /* left: calc(100% - 365px) !important; */
     top: 4px !important;
 }
 /* Red green coloring */
