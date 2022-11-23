@@ -1,0 +1,380 @@
+/* ==UserStyle==
+@name           Undo Bad Youtube UI Update
+@namespace      https://github.com/Bowserinator/hellomouse-youtube-style
+@version        1.0.0
+@description    Restore youtube style to mostly what it was before the October 2022 update
+@author         Bowserinator
+@preprocessor   less
+
+@var checkbox DislikeRatioColors "Red/green coloring for 'Return Youtube Dislike's' dislike ratio bar" 1
+@var checkbox DenseGrid "Smaller thumbnails and more items on homepage / channel video grid" 1
+@var number   ButtonBorderRadius "Border radius for buttons (px)" [2, 0, 32, 'px']
+@var number   ChipBorderRadius "Border radius for chips and bubbles (px)" [4, 0, 32, 1, 'px']
+@var number   NormalBorderRadius "Border radius for most things (px)" [0, 0, 32, 1, 'px']
+==/UserStyle== */
+
+@-moz-document url-prefix("https://www.youtube.com/") {
+    /* Better descriptions and titles */
+    /* -------------------------------- */
+
+    /* Restore old playlist title style */
+    ytd-playlist-panel-renderer[modern-panels]:not([hide-header-text]) .title.ytd-playlist-panel-renderer,
+    ytd-engagement-panel-title-header-renderer[modern-panels] #title-text.ytd-engagement-panel-title-header-renderer {
+        font-family: "Roboto","Arial",sans-serif !important;
+        font-size: 1.4rem !important;
+        line-height: 2rem !important;
+        font-weight: 500 !important;
+    }
+
+    /* Restore video title style */
+    h1.ytd-watch-metadata {
+        font-family: "Roboto","Arial",sans-serif !important;
+        font-size: 1.8rem !important;
+        line-height: 2.6rem !important;
+        font-weight: 400 !important;
+        max-height: 5.2rem !important;
+    }
+
+    /* Move video buttons to top */
+    #top-row.ytd-watch-metadata {
+        flex-direction: column-reverse !important;
+    }
+
+    /* Move Info box */
+    #info-container.ytd-watch-metadata {
+        position: absolute !important;
+        top: -115px !important;
+        left: 0 !important;
+        font-size: 1.4rem !important;
+        line-height: 2rem !important;
+        font-weight: 400 !important;
+        color: var(--yt-spec-text-secondary) !important;
+        display: block !important;
+        max-width: calc(100% - 400px);
+        -webkit-mask-image: none !important;
+    }
+
+    #info-container.ytd-watch-metadata span.bold.style-scope.yt-formatted-string {
+        font-weight: 400 !important;
+    }
+
+    /* Remove description flash when expanding */
+    yt-interaction {
+        display: none !important;
+    }
+
+    /* Remove description background color */
+    ytd-watch-metadata[modern-metapanel] #description.ytd-watch-metadata {
+        background-color: transparent !important;
+    }
+
+    /* Show more button always on new row and blue */
+    #expand.ytd-text-inline-expander {
+        /* Original was all title case and faded gray */
+        position: relative !important;
+        left: 0 !important;
+    }
+
+    /* Show more and less */
+    .button.ytd-text-inline-expander,
+    #expand.ytd-text-inline-expander {
+        text-transform: uppercase !important;
+        font-weight: normal !important;
+        color: var(--yt-spec-text-secondary) !important;
+        font-size: 1.2rem !important;
+        margin-top: 8px !important;
+    }
+
+    /* Dislike ratio bar placement (Return youtube dislike) */
+    .ryd-tooltip {
+        left: 0px !important;
+        top: 35px !important;
+    }
+
+    & when (@DislikeRatioColors = 1) {
+        /* Red green coloring */
+        #ryd-bar {
+            background: #81c784 !important;
+        }
+        #ryd-bar-container {
+            background: #ef5350 !important;
+        }
+    }
+
+    /* Increase gap between video and title as was before */
+    ytd-watch-metadata.ytd-watch-flexy {
+        margin-top: 20px !important;
+    }
+
+
+    /*
+     * Denser grid
+     * Decreases padding for home page thumbnails as well as
+     * show more thumbnails per row, may have slight visual bugs
+     * when thumbnails are loading
+     */
+    /* -------------------------------- */
+    & when (@DenseGrid = 1) {
+        #contents.ytd-rich-grid-renderer {
+            margin: 10px;
+            --ytd-rich-grid-item-margin: 10px !important;
+        }
+        ytd-rich-item-renderer {
+            margin-bottom: 20px !important;
+        }
+        #contents > ytd-rich-grid-row,
+        #contents > ytd-rich-grid-row > #contents {
+            display: contents;
+        }
+
+        @media (min-width: 1100px) and (max-width: 2100px) {
+            #contents.ytd-rich-grid-renderer {
+                --ytd-rich-grid-items-per-row: 5 !important;
+            }
+        }
+        @media (min-width: 800px) and (max-width: 1100px) {
+            #contents.ytd-rich-grid-renderer {
+                --ytd-rich-grid-items-per-row: 4 !important;
+            }
+        }
+        @media (min-width: 2100px) {
+            #contents.ytd-rich-grid-renderer {
+                --ytd-rich-grid-items-per-row: 6 !important;
+            }
+        }
+    }
+    
+    /* Buttons and UI fixes */
+    /* -------------------------------- */
+
+    /* Subscribe button */
+    #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+    #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+    yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+    yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+        background-color: var(--yt-spec-brand-button-background) !important;
+        border-radius: 2px !important;
+        color: var(--yt-spec-static-brand-white) !important;
+        padding: var(--yt-button-padding) !important;
+        margin: auto var(--ytd-subscribe-button-margin,4px) !important;
+        font-size: var(--ytd-tab-system-font-size) !important;
+        font-weight: var(--ytd-tab-system-font-weight) !important;
+        letter-spacing: var(--ytd-tab-system-letter-spacing) !important;
+        text-transform: var(--ytd-tab-system-text-transform) !important;
+    }
+
+    /* Move analytics button to right */
+    ytd-video-owner-renderer[watch-metadata-refresh] {
+        flex-grow: 1;
+    }
+
+    /* For some reason desc is duplicated */
+    #meta-contents.style-scope.ytd-watch-flexy { display: none !important; } 
+
+    /* Already subscribed button */
+    #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+    yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+        background-color: var(--yt-spec-badge-chip-background) !important;
+        color: var(--yt-spec-text-secondary) !important;
+    }
+
+    /* Move subscribe button to right */
+    #owner.ytd-watch-metadata {
+        justify-content: space-between !important;
+    }
+
+    .item.ytd-watch-metadata {
+        margin-right: 0 !important;
+    }
+
+    /* Old username style */
+    .ytd-video-owner-renderer #text.ytd-channel-name {
+        color: rgb(255, 255, 255) !important;
+        font-family: Roboto, Arial, sans-serif !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        line-height: 20px !important;
+    }
+
+    /* Playlists page left side */
+    .immersive-header-background-wrapper.ytd-playlist-header-renderer {
+        opacity: 0.2 !important;
+    }
+
+    /* Buttons no margin: */
+    #flexible-item-buttons.ytd-menu-renderer:not(:empty)>.ytd-menu-renderer[button-renderer] {
+        margin-left: 0 !important;
+    }
+
+    /* Video buttons: no bg and border: */
+    ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata .yt-spec-button-shape-next--size-m,
+    ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+        border-radius: 2px !important;
+        background-color: transparent !important;
+    }
+
+    /* Video buttons: Remove labels for clip, share, and save */
+    #actions.ytd-watch-metadata ytd-segmented-like-dislike-button-renderer .yt-spec-button-shape-next--button-text-content {
+        display: block !important;
+    }
+    #actions.ytd-watch-metadata ytd-segmented-like-dislike-button-renderer .yt-spec-button-shape-next__icon {
+        margin-right: 6px !important;
+        margin-left: -6px !important;
+    }
+    #actions.ytd-watch-metadata .yt-spec-button-shape-next--button-text-content {
+        display: none !important;
+    }
+    #actions.ytd-watch-metadata .yt-spec-button-shape-next__icon {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    /* Thumbnail channel name */
+    ytd-video-meta-block #text.ytd-channel-name,
+    .ytd-video-meta-block[meta-block] #text.ytd-channel-name {
+        color: var(--yt-spec-text-secondary) !important;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        line-height: 18px !important;
+    }
+
+    /* Change border-radius for most elements: */
+    /* -------------------------------- */
+    :root {
+        --border-radius: @NormalBorderRadius;
+        --yt-img-border-radius: var(--border-radius) !important;
+        --paper-menu-button-content-border-radius: var(--border-radius) !important;
+    }
+
+    /** Search button in nav, rounded on right */
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
+        border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
+    }
+
+    /** Nav search input, rounded on left */
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox {
+        border-radius: var(--border-radius) 0 0 var(--border-radius) !important;
+    }
+
+    /** Playlist container */
+    ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
+
+    /* Thumbnails */
+    ytd-thumbnail[size=medium] a.ytd-thumbnail, ytd-thumbnail[size=medium]:before,
+    ytd-thumbnail[size=large] a.ytd-thumbnail, ytd-thumbnail[size=large]:before,
+    ytd-playlist-thumbnail[size=medium] a.ytd-playlist-thumbnail,
+    ytd-playlist-thumbnail[size=medium]:before,
+    ytd-ghost-grid-renderer[rounded-container] .rich-thumbnail.ytd-ghost-grid-renderer,
+
+    /* Selecting a playlist / channel on left */
+    ytd-guide-entry-renderer[guide-refresh],
+    ytd-mini-guide-entry-renderer[guide-refresh],
+    ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer,
+    ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
+    ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
+
+    /* Description */
+    ytd-watch-metadata[modern-metapanel] #description.ytd-watch-metadata,
+    yt-interaction.rounded-large .fill.yt-interaction,
+    yt-interaction.rounded-large .stroke.yt-interaction,
+
+    /* Cards for games / category */
+    ytd-rich-metadata-renderer[rounded],
+
+    /* Popups */
+    ytd-menu-popup-renderer[sheets-refresh],
+    .ytp-settings-menu.ytp-rounded-menu,
+    .ytp-screen-mode-menu.ytp-rounded-menu,
+    ytd-multi-page-menu-renderer[sheets-refresh],
+    .dropdown-content.tp-yt-paper-menu-button,
+    yt-dropdown-menu[rounded-container],
+    yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
+    ytd-menu-popup-renderer[sheets-refresh],
+
+    /* Playlist video */
+    ytd-playlist-video-renderer[amsterdam],
+
+    /* Modal */
+    tp-yt-paper-dialog[modern],
+
+    /* Playlist page side */
+    .immersive-header-container.ytd-playlist-header-renderer,
+    .image-wrapper.ytd-hero-playlist-thumbnail-renderer,
+
+    /* Search results */
+    .sbdd_b,
+
+    /* Looking for something different? */
+    #content-wrapper.ytd-feed-nudge-renderer,
+
+
+    /* Thread posts */
+    ytd-backstage-post-thread-renderer[rounded-container],
+
+    /* Channel video player */
+    .ytd-channel-video-player-renderer,
+
+    /* Live chat */
+    ytd-live-chat-frame[rounded-container],
+    ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
+
+    /* Toasts */
+    yt-notification-action-renderer[ui-refresh] tp-yt-paper-toast.yt-notification-action-renderer,
+
+    /* End video suggestions */
+    .ytp-videowall-still-round-large .ytp-videowall-still-image,
+
+    /* Next video preview */
+    .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview,
+    .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview .ytp-tooltip-bg,
+
+    /* End video cards */
+    .ytp-ce-video.ytp-ce-medium-round, .ytp-ce-playlist.ytp-ce-medium-round, .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
+
+    /* Create a post */
+    ytd-backstage-post-dialog-renderer[is-creation-dialog][rounded-container],
+
+    /* Survey */
+    ytd-inline-survey-renderer[rounded-container] #dismissible.ytd-inline-survey-renderer,
+
+    /* Clip panel */
+    ytd-engagement-panel-section-list-renderer[modern-panels],
+
+    /* Share URL */
+    yt-copy-link-renderer[rounded-container] #bar.yt-copy-link-renderer {
+        border-radius: var(--border-radius) !important;
+    }
+
+    /* Miniplayer */
+    .ytp-player-minimized.ytp-rounded-miniplayer .html5-main-video,
+    .ytp-player-minimized.ytp-rounded-miniplayer .ytp-miniplayer-scrim,
+    .ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player,
+    ytd-miniplayer[rounded-container] #player-container.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] #video-container.ytd-miniplayer .video.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] #card.ytd-miniplayer, ytd-miniplayer[rounded-container] {
+        border-radius: @NormalBorderRadius !important;
+    }
+
+    /* Community poll */
+    ytd-backstage-poll-renderer:not([is-image-poll]) .choice-info.ytd-backstage-poll-renderer {
+        border-radius: @NormalBorderRadius !important; /* Used to be 4px */
+    }
+
+    /* Help bubble */
+    yt-bubble-hint-renderer[rounded-container] {
+        border-radius: @ChipBorderRadius !important; /* Used to be 12px */
+    }
+
+    /* Buttons */
+    .yt-spec-touch-feedback-shape,
+    .yt-spec-button-shape-next--size-m {
+        border-radius: @ButtonBorderRadius !important;
+    }
+
+    /* Chips */
+    yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
+        border-radius: @ChipBorderRadius !important;
+    }
+}

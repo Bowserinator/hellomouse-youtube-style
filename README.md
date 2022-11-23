@@ -1,16 +1,36 @@
-# Hellomouse Youtube Styles
+# Undo Bad Youtube UI Update
 
-Around October 26th 2022 youtube released a new UI update, with lots of round buttons, broken features and etc...
+Around October 26th 2022 youtube released a new UI update, with lots of round buttons, bad features, etc...
 
-(Like seriously why would you make the *channel name* and the *video title* the **SAME STYLE** in a thumbnail?!)
-
-This extension undoes most of that (and has some "enhancements" of my own, you can look for them in the CSS and disable them if you don't like them)
+This user CSS undoes most of that (and has some "enhancements" of my own, you can look for them in the CSS and disable them if you don't like them). There are also a few settings you can adjust.
 
 ### Installation:
 
-1. Clone this repo (or download zip and extract)
-2. Go to `chrome://extensions` and click "Load unpacked" (make sure developer mode is enabled)
-3. Pick the folder that contains `manifest.json`
-4. Profit
+## 1. Get the [Stylus] browser extension
+[![Stylus for Chrome](https://img.shields.io/badge/Get_Stylus_for-Chrome-blue.svg)][StylusChrome]<br>
+[![Stylus for Firefox](https://img.shields.io/badge/Get_Stylus_for-Firefox-orange.svg)][StylusFirefox]<br>
+[![Stylus for Opera](https://img.shields.io/badge/Get_Stylus_for-Opera-red.svg)][StylusOpera]
 
-Firefox coming soon probably, someone open a PR
+## 2. Add scripts to Stylus
+[TODO link]
+
+Alternatively, you can go to the `youtube-style-combined.user.css` file and click "Raw" in the top-right corner, Stylus 
+should offer to install it.
+
+### Features (v1.0.0)
+
+- Restore the old style for playlist titles, video thumbnail titles, channel names, etc...
+- Move video buttons to top again, remove names for more compact interface (that can fit all buttons including *Add to Playlist*)
+- Remove the ugly new description box styles and move date added to top
+- Red subscribe buttons
+- (Adjustable) Border radius on most things, unrounded UI as was before
+- (Optional) Denser grid on homepage and channels, on a 1080p screen can now fit 5 thumbnails instead of 4
+- (Optional) Red/green styling for "Return Youtube Dislikes" ratio bar
+
+### Bug
+
+Found a bug? Want to request a feature? Open an issue at https://github.com/Bowserinator/hellomouse-youtube-style/issues
+
+### License
+
+Licensed under the MIT License
