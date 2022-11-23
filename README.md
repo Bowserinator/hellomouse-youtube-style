@@ -23,6 +23,7 @@ should offer to install it.
 - Move video buttons to top again, remove names for more compact interface (that can fit all buttons including *Add to Playlist*)
 - Remove the ugly new description box styles and move date added to top
 - Red subscribe buttons
+- Make new playlist page slightly more bearable
 - (Adjustable) Border radius on most things, unrounded UI as was before
 - (Optional) Denser grid on homepage and channels, on a 1080p screen can now fit 5 thumbnails instead of 4
 - (Optional) Red/green styling for "Return Youtube Dislikes" ratio bar

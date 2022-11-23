@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name           Undo Bad Youtube UI Update
-@namespace      https://github.com/Bowserinator/hellomouse-youtube-style
+@namespace      github.com/openstyles/stylus
 @version        1.0.0
 @description    Restore youtube style to mostly what it was before the October 2022 update
 @author         Bowserinator
@@ -15,7 +15,6 @@
 
 @-moz-document url-prefix("https://www.youtube.com/") {
     /* Better descriptions and titles */
-    /* -------------------------------- */
 
     /* Restore old playlist title style */
     ytd-playlist-panel-renderer[modern-panels]:not([hide-header-text]) .title.ytd-playlist-panel-renderer,
@@ -43,7 +42,8 @@
     /* Move Info box */
     #info-container.ytd-watch-metadata {
         position: absolute !important;
-        top: -115px !important;
+        visibility: visible !important;
+        top: -74px !important; /* -115px for new desc box */
         left: 0 !important;
         font-size: 1.4rem !important;
         line-height: 2rem !important;
@@ -113,7 +113,6 @@
      * show more thumbnails per row, may have slight visual bugs
      * when thumbnails are loading
      */
-    /* -------------------------------- */
     & when (@DenseGrid = 1) {
         #contents.ytd-rich-grid-renderer {
             margin: 10px;
@@ -145,7 +144,6 @@
     }
     
     /* Buttons and UI fixes */
-    /* -------------------------------- */
 
     /* Subscribe button */
     #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
@@ -169,7 +167,14 @@
     }
 
     /* For some reason desc is duplicated */
-    #meta-contents.style-scope.ytd-watch-flexy { display: none !important; } 
+    #bottom-row, #owner {
+        visibility: hidden !important;
+        height: 0;
+    }
+    ytd-watch-metadata { margin-bottom: 0 !important; }
+    
+    /* This is the style for the old desc box (may be removed in the future, but we're keeping this for now */
+    /* #meta-contents.style-scope.ytd-watch-flexy { display: none !important; } */
 
     /* Already subscribed button */
     #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
@@ -221,7 +226,8 @@
         margin-right: 6px !important;
         margin-left: -6px !important;
     }
-    #actions.ytd-watch-metadata .yt-spec-button-shape-next--button-text-content {
+    #actions.ytd-watch-metadata .yt-spec-button-shape-next--button-text-content,
+    ytd-menu-renderer ytd-button-renderer yt-formatted-string.ytd-button-renderer {
         display: none !important;
     }
     #actions.ytd-watch-metadata .yt-spec-button-shape-next__icon {
@@ -239,7 +245,6 @@
     }
 
     /* Change border-radius for most elements: */
-    /* -------------------------------- */
     :root {
         --border-radius: @NormalBorderRadius;
         --yt-img-border-radius: var(--border-radius) !important;
