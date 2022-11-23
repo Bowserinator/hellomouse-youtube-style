@@ -66,8 +66,15 @@ tp-yt-paper-dialog[modern],
 /* Search results */
 .sbdd_b,
 
+/* Looking for something different? */
+#content-wrapper.ytd-feed-nudge-renderer,
+
+
 /* Thread posts */
 ytd-backstage-post-thread-renderer[rounded-container],
+
+/* Channel video player */
+.ytd-channel-video-player-renderer,
 
 /* Live chat */
 ytd-live-chat-frame[rounded-container],
@@ -120,6 +127,6 @@ yt-bubble-hint-renderer[rounded-container] {
 }
 
 /* Chips */
-/* yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
-    border-radius: 2px !important;
-} */
+yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
+    border-radius: 4px !important;
+}
