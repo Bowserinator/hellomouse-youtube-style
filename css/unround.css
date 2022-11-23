@@ -110,7 +110,10 @@ yt-copy-link-renderer[rounded-container] #bar.yt-copy-link-renderer {
 /* Miniplayer */
 .ytp-player-minimized.ytp-rounded-miniplayer .html5-main-video,
 .ytp-player-minimized.ytp-rounded-miniplayer .ytp-miniplayer-scrim,
-.ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player {
+.ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player,
+ytd-miniplayer[rounded-container] #player-container.ytd-miniplayer,
+ytd-miniplayer[rounded-container] #video-container.ytd-miniplayer .video.ytd-miniplayer,
+ytd-miniplayer[rounded-container] #card.ytd-miniplayer, ytd-miniplayer[rounded-container] {
     border-radius: 0 !important;
 }
 
