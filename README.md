@@ -26,7 +26,7 @@ should offer to install it.
 ### Features (v1.0.0)
 
 - Restore the old style for playlist titles, video thumbnail titles, channel names, etc...
-- Move video buttons to top again, remove names for more compact interface (optional) (that can fit all buttons including *Add to Playlist*)
+- Move video buttons to top again, remove btn labels for more compact interface (optional) (that can fit all buttons including *Add to Playlist*)
 - Remove the ugly new description box styles and move date added to top
 - Red subscribe buttons
 - Make new playlist page slightly more bearable
@@ -35,7 +35,7 @@ should offer to install it.
 - (Optional) Red/green styling for "Return Youtube Dislikes" ratio bar
 - (Optional) Always show titles in video end card grid
 
-### Bug
+### Bug / Feature Request
 
 Found a bug? Want to request a feature? Open an issue at https://github.com/Bowserinator/hellomouse-youtube-style/issues
 
