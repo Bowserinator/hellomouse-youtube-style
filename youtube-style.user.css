@@ -336,7 +336,9 @@
     /* Looking for something different? */
     #content-wrapper.ytd-feed-nudge-renderer,
 
-
+    /* Chapter */
+    ytd-macro-markers-list-item-renderer[modern][rounded][layout=MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL],
+    
     /* Thread posts */
     ytd-backstage-post-thread-renderer[rounded-container],
 

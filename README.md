@@ -2,7 +2,7 @@
 
 <img src="https://github.com/Bowserinator/hellomouse-youtube-style/blob/master/preview/1.JPG?raw=true" width="600px">
 
-*Get this page style and others back!*
+*Get this page style and others back! (Extension output example above)*
 
 Around October 26th 2022 youtube released a new UI update, with lots of round buttons, bad features, etc...
 
