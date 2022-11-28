@@ -8,7 +8,12 @@ Around October 26th 2022 youtube released a new UI update, with lots of round bu
 
 This user CSS undoes most of that (and has some "enhancements" of my own, you can look for them in the CSS and disable them if you don't like them). There are also a few settings you can adjust.
 
+### Bug Fixes / Common Problems
+
 **Note: if you see 2 description boxes enable the bug fix in the settings, I have no idea what other extension or youtube feature causes this**
+
+- If you see no description box + channel, disable the bug fix in the settings
+
 
 ### Installation:
 

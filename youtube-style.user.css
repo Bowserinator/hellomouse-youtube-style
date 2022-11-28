@@ -316,6 +316,9 @@
     yt-dropdown-menu[rounded-container],
     yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
     ytd-menu-popup-renderer[sheets-refresh],
+    
+    /* End card */
+    .ytp-ce-video.ytp-ce-large-round, .ytp-ce-playlist.ytp-ce-large-round, .ytp-ce-large-round .ytp-ce-expanding-overlay-background,
 
     /* Playlist video */
     ytd-playlist-video-renderer[amsterdam],
@@ -345,6 +348,10 @@
     /* Channel video player */
     .ytd-channel-video-player-renderer,
 
+    /* Expandable in search */
+    ytd-expandable-metadata-renderer[round-container],
+    img.yt-img-shadow,
+    
     /* Live chat */
     ytd-live-chat-frame[rounded-container],
     ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
