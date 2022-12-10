@@ -40,6 +40,9 @@ should offer to install it.
 - (Optional) Red/green styling for "Return Youtube Dislikes" ratio bar
 - (Optional) Always show titles in video end card grid
 
+### (v1.1.0)
+- Made playlist thumbnails smaller again (why did youtube think making them big was a good idea)
+
 ### Bug / Feature Request
 
 Found a bug? Want to request a feature? Open an issue at https://github.com/Bowserinator/hellomouse-youtube-style/issues

@@ -18,6 +18,12 @@
 
 @-moz-document url-prefix("https://www.youtube.com/") {
     /* Better descriptions and titles */
+    
+    /* Playlist thumbnails smaller */
+    ytd-playlist-video-renderer[amsterdam-post-mvp] ytd-thumbnail.ytd-playlist-video-renderer {
+        width: 130px !important;
+        height: 76px !important;
+    }
 
     /* Restore old playlist title style */
     ytd-playlist-panel-renderer[modern-panels]:not([hide-header-text]) .title.ytd-playlist-panel-renderer,
