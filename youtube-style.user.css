@@ -18,7 +18,7 @@
 
 @-moz-document url-prefix("https://www.youtube.com/") {
     /* Better descriptions and titles */
-    
+
     /* Playlist thumbnails smaller */
     ytd-playlist-video-renderer[amsterdam-post-mvp] ytd-thumbnail.ytd-playlist-video-renderer {
         width: 130px !important;
@@ -28,7 +28,7 @@
     /* Restore old playlist title style */
     ytd-playlist-panel-renderer[modern-panels]:not([hide-header-text]) .title.ytd-playlist-panel-renderer,
     ytd-engagement-panel-title-header-renderer[modern-panels] #title-text.ytd-engagement-panel-title-header-renderer {
-        font-family: "Roboto","Arial",sans-serif !important;
+        font-family: "Roboto", "Arial", sans-serif !important;
         font-size: 1.4rem !important;
         line-height: 2rem !important;
         font-weight: 500 !important;
@@ -36,7 +36,7 @@
 
     /* Restore video title style */
     h1.ytd-watch-metadata {
-        font-family: "Roboto","Arial",sans-serif !important;
+        font-family: "Roboto", "Arial", sans-serif !important;
         font-size: 1.8rem !important;
         line-height: 2.6rem !important;
         font-weight: 400 !important;
@@ -52,8 +52,15 @@
     #info-container.ytd-watch-metadata {
         position: absolute !important;
         visibility: visible !important;
-        & when (@DescBugFix = 1) { top: -74px !important; }
-        & when (@DescBugFix = 0) { top: -110px !important; }
+
+        & when (@DescBugFix =1) {
+            top: -74px !important;
+        }
+
+        & when (@DescBugFix =0) {
+            top: -110px !important;
+        }
+
         left: 0 !important;
         font-size: 1.4rem !important;
         line-height: 2rem !important;
@@ -101,11 +108,13 @@
         top: 35px !important;
     }
 
-    & when (@DislikeRatioColors = 1) {
+    & when (@DislikeRatioColors =1) {
+
         /* Red green coloring */
         #ryd-bar {
             background: #81c784 !important;
         }
+
         #ryd-bar-container {
             background: #ef5350 !important;
         }
@@ -123,16 +132,18 @@
      * show more thumbnails per row, may have slight visual bugs
      * when thumbnails are loading
      */
-    & when (@DenseGrid = 1) {
+    & when (@DenseGrid =1) {
         #contents.ytd-rich-grid-renderer {
             margin: 10px;
             --ytd-rich-grid-item-margin: 10px !important;
         }
+
         ytd-rich-item-renderer {
             margin-bottom: 20px !important;
         }
-        #contents > ytd-rich-grid-row,
-        #contents > ytd-rich-grid-row > #contents {
+
+        #contents>ytd-rich-grid-row,
+        #contents>ytd-rich-grid-row>#contents {
             display: contents;
         }
 
@@ -141,32 +152,34 @@
                 --ytd-rich-grid-items-per-row: 5 !important;
             }
         }
+
         @media (min-width: 800px) and (max-width: 1100px) {
             #contents.ytd-rich-grid-renderer {
                 --ytd-rich-grid-items-per-row: 4 !important;
             }
         }
+
         @media (min-width: 2100px) {
             #contents.ytd-rich-grid-renderer {
                 --ytd-rich-grid-items-per-row: 6 !important;
             }
         }
     }
-    
+
     /* Buttons and UI fixes */
 
     /* Subscribe button */
     #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
     #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-    yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
-    yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+    yt-button-shape.ytd-subscribe-button-renderer>.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+    yt-button-shape.ytd-subscribe-button-renderer>.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
     #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
     #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
         background-color: var(--yt-spec-brand-button-background) !important;
         border-radius: 2px !important;
         color: var(--yt-spec-static-brand-white) !important;
         padding: var(--yt-button-padding) !important;
-        margin: auto var(--ytd-subscribe-button-margin,4px) !important;
+        margin: auto var(--ytd-subscribe-button-margin, 4px) !important;
         font-size: var(--ytd-tab-system-font-size) !important;
         font-weight: var(--ytd-tab-system-font-weight) !important;
         letter-spacing: var(--ytd-tab-system-letter-spacing) !important;
@@ -179,21 +192,26 @@
     }
 
     /* For some reason desc is duplicated */
-    & when (@DescBugFix = 1) {
-        #bottom-row, #owner,
+    & when (@DescBugFix =1) {
+
+        #bottom-row,
+        #owner,
         ytd-metadata-row-container-renderer.style-scope.ytd-watch-metadata #always-shown {
             visibility: hidden !important;
             height: 0;
         }
-        ytd-watch-metadata { margin-bottom: 0 !important; }
+
+        ytd-watch-metadata {
+            margin-bottom: 0 !important;
+        }
     }
-        
+
     /* This is the style for the old desc box (may be removed in the future, but we're keeping this for now */
     /* #meta-contents.style-scope.ytd-watch-flexy { display: none !important; } */
 
     /* Already subscribed button */
     #owner.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-    yt-button-shape.ytd-subscribe-button-renderer > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+    yt-button-shape.ytd-subscribe-button-renderer>.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
     #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
         background-color: var(--yt-spec-badge-chip-background) !important;
         color: var(--yt-spec-text-secondary) !important;
@@ -227,6 +245,17 @@
         margin-left: 0 !important;
     }
 
+    /* Search, smaller thumbnails */
+    ytd-video-renderer[use-search-ui] ytd-thumbnail.ytd-video-renderer,
+    ytd-playlist-renderer[is-search] ytd-playlist-thumbnail.ytd-playlist-renderer {
+        max-width: 240px !important;
+    }
+
+    /* Search, smaller shorts */
+    ytd-reel-item-renderer {
+        width: 150px !important;
+    }
+
     /* Video buttons: no bg and border: */
     ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata .yt-spec-button-shape-next--size-m,
     ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
@@ -238,23 +267,25 @@
     #actions.ytd-watch-metadata ytd-segmented-like-dislike-button-renderer .yt-spec-button-shape-next--button-text-content {
         display: block !important;
     }
-    
-    & when (@RemoveButtonLabel = 1) {
+
+    & when (@RemoveButtonLabel =1) {
         #actions.ytd-watch-metadata ytd-segmented-like-dislike-button-renderer .yt-spec-button-shape-next__icon {
             margin-right: 6px !important;
             margin-left: -6px !important;
         }
+
         #actions.ytd-watch-metadata .yt-spec-button-shape-next--button-text-content,
         ytd-menu-renderer ytd-button-renderer yt-formatted-string.ytd-button-renderer {
             display: none !important;
         }
+
         #actions.ytd-watch-metadata .yt-spec-button-shape-next__icon {
             margin-right: 0 !important;
             margin-left: 0 !important;
         }
     }
-    
-    & when (@AlwaysShowEndCardTitle = 1) {
+
+    & when (@AlwaysShowEndCardTitle =1) {
         .ytp-videowall-still-info-content {
             opacity: 1 !important;
         }
@@ -278,13 +309,15 @@
 
     /** Search button in nav, rounded on right */
     ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox,
+    #search-icon-legacy.ytd-searchbox {
         border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
     }
 
     /** Nav search input, rounded on left */
     ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox {
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
+    #container.ytd-searchbox {
         border-radius: var(--border-radius) 0 0 var(--border-radius) !important;
     }
 
@@ -292,8 +325,10 @@
     ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
 
     /* Thumbnails */
-    ytd-thumbnail[size=medium] a.ytd-thumbnail, ytd-thumbnail[size=medium]:before,
-    ytd-thumbnail[size=large] a.ytd-thumbnail, ytd-thumbnail[size=large]:before,
+    ytd-thumbnail[size=medium] a.ytd-thumbnail,
+    ytd-thumbnail[size=medium]:before,
+    ytd-thumbnail[size=large] a.ytd-thumbnail,
+    ytd-thumbnail[size=large]:before,
     ytd-playlist-thumbnail[size=medium] a.ytd-playlist-thumbnail,
     ytd-playlist-thumbnail[size=medium]:before,
     ytd-ghost-grid-renderer[rounded-container] .rich-thumbnail.ytd-ghost-grid-renderer,
@@ -322,13 +357,15 @@
     yt-dropdown-menu[rounded-container],
     yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
     ytd-menu-popup-renderer[sheets-refresh],
-    
+
     /* End card */
-    .ytp-ce-video.ytp-ce-large-round, .ytp-ce-playlist.ytp-ce-large-round, .ytp-ce-large-round .ytp-ce-expanding-overlay-background,
+    .ytp-ce-video.ytp-ce-large-round,
+    .ytp-ce-playlist.ytp-ce-large-round,
+    .ytp-ce-large-round .ytp-ce-expanding-overlay-background,
 
     /* Playlist video */
     ytd-playlist-video-renderer[amsterdam],
-    
+
     /* Chapter thumbnail */
     ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer,
 
@@ -347,7 +384,7 @@
 
     /* Chapter */
     ytd-macro-markers-list-item-renderer[modern][rounded][layout=MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL],
-    
+
     /* Thread posts */
     ytd-backstage-post-thread-renderer[rounded-container],
 
@@ -357,7 +394,7 @@
     /* Expandable in search */
     ytd-expandable-metadata-renderer[round-container],
     img.yt-img-shadow,
-    
+
     /* Live chat */
     ytd-live-chat-frame[rounded-container],
     ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
@@ -367,10 +404,10 @@
 
     /* End video suggestions */
     .ytp-videowall-still-round-large .ytp-videowall-still-image,
-    
+
     /* Banner */
     ytd-brand-video-singleton-renderer[rounded-container]:not([is-first-feed-item]) #dismissible.ytd-brand-video-singleton-renderer,
-    
+
     /* Hover to play */
     ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
 
@@ -378,8 +415,13 @@
     .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview,
     .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview .ytp-tooltip-bg,
 
+    /* Search result album card */
+    ytd-universal-watch-card-renderer[rounded] .ytd-universal-watch-card-renderer,
+
     /* End video cards */
-    .ytp-ce-video.ytp-ce-medium-round, .ytp-ce-playlist.ytp-ce-medium-round, .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
+    .ytp-ce-video.ytp-ce-medium-round,
+    .ytp-ce-playlist.ytp-ce-medium-round,
+    .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
 
     /* Create a post */
     ytd-backstage-post-dialog-renderer[is-creation-dialog][rounded-container],
@@ -401,28 +443,31 @@
     .ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player,
     ytd-miniplayer[rounded-container] #player-container.ytd-miniplayer,
     ytd-miniplayer[rounded-container] #video-container.ytd-miniplayer .video.ytd-miniplayer,
-    ytd-miniplayer[rounded-container] #card.ytd-miniplayer, ytd-miniplayer[rounded-container] {
-        border-radius: @NormalBorderRadius !important;
+    ytd-miniplayer[rounded-container] #card.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] {
+        border-radius: @NormalBorderRadius  !important;
     }
 
     /* Community poll */
     ytd-backstage-poll-renderer:not([is-image-poll]) .choice-info.ytd-backstage-poll-renderer {
-        border-radius: @NormalBorderRadius !important; /* Used to be 4px */
+        border-radius: @NormalBorderRadius  !important;
+        /* Used to be 4px */
     }
 
     /* Help bubble */
     yt-bubble-hint-renderer[rounded-container] {
-        border-radius: @ChipBorderRadius !important; /* Used to be 12px */
+        border-radius: @ChipBorderRadius  !important;
+        /* Used to be 12px */
     }
 
     /* Buttons */
     .yt-spec-touch-feedback-shape,
     .yt-spec-button-shape-next--size-m {
-        border-radius: @ButtonBorderRadius !important;
+        border-radius: @ButtonBorderRadius  !important;
     }
 
     /* Chips */
     yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
-        border-radius: @ChipBorderRadius !important;
+        border-radius: @ChipBorderRadius  !important;
     }
 }
