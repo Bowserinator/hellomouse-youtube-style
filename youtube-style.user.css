@@ -118,9 +118,33 @@
         max-height: 5.2rem !important;
     }
 
+    /* Consistent video left width */
+    @media (min-width: 1100px) {
+        #primary.ytd-watch-flexy {
+            max-width: calc(100% - 400px) !important;
+        }
+    }
+    
     /* Move video buttons to top */
     #top-row.ytd-watch-metadata {
         flex-direction: column-reverse !important;
+        margin-top: -4px !important;
+    }
+    
+    /* Align description box */
+    ytd-text-inline-expander {
+        margin-left: 50px !important;
+        max-width: 615px !important;
+    }
+    
+    /* Comment smaller */
+    ytd-comments {
+        max-width: 815px !important;
+    }
+    
+    /* All links are blue */
+    a.yt-simple-endpoint.yt-formatted-string {
+        color: var(--yt-spec-call-to-action);
     }
 
     /* Move Info box */
@@ -128,7 +152,7 @@
         position: absolute !important;
         visibility: visible !important;
         & when (@DescBugFix = 1) { top: -74px !important; }
-        & when (@DescBugFix = 0) { top: -110px !important; }
+        & when (@DescBugFix = 0) { top: -120px !important; }
         left: 0 !important;
         font-size: 1.4rem !important;
         line-height: 2rem !important;
@@ -138,7 +162,20 @@
         max-width: calc(100% - 400px);
         -webkit-mask-image: none !important;
     }
+    
+    ytd-metadata-row-container-renderer.ytd-watch-metadata {
+        max-width: calc(100% - 300px) !important;
+        margin-left: 52px !important;
+    }
 
+    /* Proper margin for buttons so view count is height offset correctly */
+    ytd-watch-metadata #actions {
+        margin-top: 12px;
+    }
+    ytd-watch-metadata.ytd-watch-flexy {
+        margin-bottom: 0px !important;
+    }
+    
     #info-container.ytd-watch-metadata span.bold.style-scope.yt-formatted-string {
         font-weight: 400 !important;
     }
@@ -149,7 +186,7 @@
     }
 
     /* Remove description background color */
-    ytd-watch-metadata[modern-metapanel] #description.ytd-watch-metadata {
+     #description.ytd-watch-metadata {
         background-color: transparent !important;
     }
 
@@ -190,6 +227,11 @@
     ytd-watch-metadata.ytd-watch-flexy {
         margin-top: 20px !important;
     }
+    
+    /* Hide weird extra content in new update in desc */
+    div[slot="extra-content"].ytd-watch-metadata {
+        display: none;
+    }
 
 
     
@@ -212,7 +254,16 @@
         letter-spacing: var(--ytd-tab-system-letter-spacing) !important;
         text-transform: var(--ytd-tab-system-text-transform) !important;
     }
-
+    
+    /* Consistent line height in desc */
+    ytd-text-inline-expander {
+        line-height: 20px !important;
+    }
+    
+    #plain-snippet-text {
+        display: inline-block;
+    }
+    
     /* Move analytics button to right */
     ytd-video-owner-renderer[watch-metadata-refresh] {
         flex-grow: 1;
@@ -248,6 +299,14 @@
         margin-right: 0 !important;
     }
 
+    #description.item.ytd-watch-metadata {
+        margin-top: 0 !important;
+    }
+    
+    #info-container.ytd-watch-metadata {
+        margin-top: 12px !important;
+    }
+    
     /* Old username style */
     .ytd-video-owner-renderer #text.ytd-channel-name {
         color: rgb(255, 255, 255) !important;
@@ -277,16 +336,37 @@
     ytd-reel-item-renderer {
         width: 150px !important;
     }
+    
+    /* Border above video metadata */
+    #owner {
+        border-top: 1px solid var(--yt-spec-10-percent-layer);
+        margin-top: 4px !important;
+        padding-top: 12px !important;
+    }
+    
+    /* Border above comments */
+    ytd-comments-header-renderer #title {
+        border-top: 1px solid var(--yt-spec-10-percent-layer);
+        padding-top: 12px !important;
+    }
+    
+    ytd-watch-metadata #top-row {
+        border-bottom: none !important;
+    }
 
     /* Video buttons: no bg and border: */
     #menu-container .yt-spec-button-shape-next--size-m,
-    #menu-container .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+    #menu-container .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+    #menu .yt-spec-button-shape-next--size-m,
+    #menu .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
         border-radius: 2px !important;
         background-color: transparent !important;
+        
+        yt-icon { height: 22px !important; }
     }
 
     /* Video buttons: Remove labels for clip, share, and save */
-    #menu-container ytd-segmented-like-dislike-button-renderer .yt-spec-button-shape-next--button-text-content {
+    #actions.ytd-watch-metadata .yt-spec-button-shape-next__button-text-content {
         display: block !important;
     }
     
@@ -295,15 +375,16 @@
             min-width: 400px !important;
         }
     
-        #menu-container ytd-segmented-like-dislike-button-renderer .yt-spec-button-shape-next__icon {
+        #actions.ytd-watch-metadata .yt-spec-button-shape-next__icon {
             margin-right: 6px !important;
             margin-left: -6px !important;
         }
-        #menu-container .yt-spec-button-shape-next--button-text-content,
+        #actions.ytd-watch-metadata .yt-spec-button-shape-next__button-text-content,
         ytd-menu-renderer ytd-button-renderer yt-formatted-string.ytd-button-renderer {
             display: none !important;
         }
-        #menu-container .yt-spec-button-shape-next__icon {
+        #menu-container .yt-spec-button-shape-next__icon,
+        #menu .yt-spec-button-shape-next__icon{
             margin-right: 0 !important;
             margin-left: 0 !important;
         }
@@ -322,6 +403,7 @@
         font-size: 12px !important;
         font-weight: 400 !important;
         line-height: 18px !important;
+        font-style: normal !important;
     }
     
     /* Thubmnail title */
@@ -367,29 +449,31 @@
     ytd-ghost-grid-renderer[rounded-container] .rich-thumbnail.ytd-ghost-grid-renderer,
 
     /* Selecting a playlist / channel on left */
-    ytd-guide-entry-renderer[guide-refresh],
-    ytd-mini-guide-entry-renderer[guide-refresh],
-    ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer,
-    ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
-    ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
+    ytd-guide-entry-renderer,
+    ytd-mini-guide-entry-renderer,
+    ytd-guide-entry-renderer yt-interaction.ytd-guide-entry-renderer,
+    ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
+    ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
 
     /* Description */
     ytd-watch-metadata[modern-metapanel] #description.ytd-watch-metadata,
     yt-interaction.rounded-large .fill.yt-interaction,
     yt-interaction.rounded-large .stroke.yt-interaction,
+    
+    /* Mini player */
+    .ytp-player-minimized .html5-main-video, .ytp-player-minimized .ytp-miniplayer-scrim,
 
     /* Cards for games / category */
     ytd-rich-metadata-renderer[rounded],
 
     /* Popups */
-    ytd-menu-popup-renderer[sheets-refresh],
-    .ytp-settings-menu.ytp-rounded-menu,
-    .ytp-screen-mode-menu.ytp-rounded-menu,
-    ytd-multi-page-menu-renderer[sheets-refresh],
+    ytd-menu-popup-renderer,
+    .ytp-settings-menu,
+    .ytp-screen-mode-menu,
+    ytd-multi-page-menu-renderer,
     .dropdown-content.tp-yt-paper-menu-button,
     yt-dropdown-menu[rounded-container],
     yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
-    ytd-menu-popup-renderer[sheets-refresh],
     
     /* End card */
     .ytp-ce-video.ytp-ce-large-round, .ytp-ce-playlist.ytp-ce-large-round, .ytp-ce-large-round .ytp-ce-expanding-overlay-background,
@@ -436,6 +520,9 @@
     /* End video suggestions */
     .ytp-videowall-still-round-large .ytp-videowall-still-image,
     
+    /* Autoplay thumbnail */
+    .ytp-autonav-endscreen-upnext-thumbnail,
+    
     /* Banner */
     ytd-brand-video-singleton-renderer[rounded-container]:not([is-first-feed-item]) #dismissible.ytd-brand-video-singleton-renderer,
     
@@ -460,6 +547,13 @@
 
     /* Clip panel */
     ytd-engagement-panel-section-list-renderer[modern-panels],
+        
+    /* Topic (ie music) */
+    #topic-link-container.ytd-topic-link-renderer,
+    
+    /* Playlist in desc */
+    #thumbnail.ytd-structured-description-playlist-lockup-renderer,
+    #overlay.ytd-structured-description-playlist-lockup-renderer,
 
     /* Share URL */
     yt-copy-link-renderer[rounded-container] #bar.yt-copy-link-renderer {
@@ -493,8 +587,7 @@
     }
 
     /* Chips */
-    yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
+    yt-chip-cloud-chip-renderer {
         border-radius: @ChipBorderRadius !important;
     }
 }
-    
